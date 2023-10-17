@@ -1,3 +1,5 @@
+
+// Scroll-Animation
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -11,24 +13,31 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
 
+// Language-Switcher
 var lang = "en";
-const de = document.getElementById("de");
-const en = document.getElementById("en");
-const sitede = document.getElementById("site-de");
-const siteen = document.getElementById("site-en");
+var current = document.getElementById("lang-current");
+var sitede = document.getElementById("site-de");
+var siteen = document.getElementById("site-en");
 
 function changeLang() {
   if (lang === "en") {
     lang = "de";
-    de.style.backgroundColor = "rgb(90, 90, 90)";
-    en.style.backgroundColor = "rgb(54, 54, 54)";
+    current.style.left = "2px";
     sitede.style.display = "block";
     siteen.style.display = "none";
   } else {
     lang = "en";
-    en.style.backgroundColor = "rgb(90, 90, 90)";
-    de.style.backgroundColor = "rgb(54, 54, 54)";
+    current.style.left = "50px";
     sitede.style.display = "none";
     siteen.style.display = "block";
   }
 }
+
+// Background-Particles
+window.onload = function() {
+  Particles.init({
+    selector: '.background',
+    color: '#ffffff',
+    connectParticles: true
+  });
+};
